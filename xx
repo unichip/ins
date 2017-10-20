@@ -1,0 +1,68 @@
+
+# download script
+cd
+wget -O /usr/bin/benchmark "http://vpn989.com/script/benchmark.sh"
+wget -O /usr/bin/speedtest  "http://vpn989.com/script/speedtest_cli.py"
+wget -O /usr/bin/ps-mem "http://vpn989.com/script/ps_mem.py"
+wget -O /usr/bin/dropmon "http://vpn989.com/script/dropmon.sh"
+wget -O /usr/bin/menu "http://vpn989.com/script/menu.sh"
+wget -O /usr/bin/user-active-list "http://vpn989.com/script/user-active-list.sh"
+wget -O /usr/bin/user-add "http://vpn989.com/script/user-add.sh"
+wget -O /usr/bin/user-add-pptp "http://vpn989.com/script/user-add-pptp.sh"
+wget -O /usr/bin/user-del "http://vpn989.com/script/user-del.sh"
+wget -O /usr/bin/disable-user-expire "http://vpn989.com/script/disable-user-expire.sh"
+wget -O /usr/bin/delete-user-expire "http://vpn989.com/script/delete-user-expire.sh"
+wget -O /usr/bin/banned-user "http://vpn989.com/script/banned-user.sh"
+wget -O /usr/bin/unbanned-user "http://vpn989.com/script/unbanned-user.sh"
+wget -O /usr/bin/user-expire-list "http://vpn989.com/script/user-expire-list.sh"
+wget -O /usr/bin/user-gen "http://vpn989.com/script/user-gen.sh"
+wget -O /usr/bin/userlimit.sh "http://vpn989.com/script/userlimit.sh"
+wget -O /usr/bin/userlimitssh.sh "http://vpn989.com/script/userlimitssh.sh"
+wget -O /usr/bin/user-list "http://vpn989.com/script/user-list.sh"
+wget -O /usr/bin/user-login "http://vpn989.com/script/user-login.sh"
+wget -O /usr/bin/user-pass "http://vpn989.com/script/user-pass.sh"
+wget -O /usr/bin/user-renew "http://vpn989.com/script/user-renew.sh"
+wget -O /usr/bin/clearcache.sh "http://vpn989.com/script/clearcache.sh"
+wget -O /usr/bin/bannermenu "http://vpn989.com/script/bannermenu"
+cd
+
+#rm -rf /etc/cron.weekly/
+#rm -rf /etc/cron.hourly/
+#rm -rf /etc/cron.monthly/
+rm -rf /etc/cron.daily/
+wget -O /root/passwd "http://vpn989.com/script/passwd.sh"
+chmod +x /root/passwd
+echo "01 23 * * * root /root/passwd" > /etc/cron.d/passwd
+
+echo "*/30 * * * * root service dropbear restart" > /etc/cron.d/dropbear
+echo "00 23 * * * root /usr/bin/disable-user-expire" > /etc/cron.d/disable-user-expire
+echo "0 */12 * * * root /sbin/reboot" > /etc/cron.d/reboot
+#echo "00 01 * * * root echo 3 > /proc/sys/vm/drop_caches && swapoff -a && swapon -a" > /etc/cron.d/clearcacheram3swap
+echo "*/30 * * * * root /usr/bin/clearcache.sh" > /etc/cron.d/clearcache1
+
+cd
+chmod +x /usr/bin/benchmark
+chmod +x /usr/bin/speedtest
+chmod +x /usr/bin/ps-mem
+#chmod +x /usr/bin/autokill
+chmod +x /usr/bin/dropmon
+chmod +x /usr/bin/menu
+chmod +x /usr/bin/user-active-list
+chmod +x /usr/bin/user-add
+chmod +x /usr/bin/user-add-pptp
+chmod +x /usr/bin/user-del
+chmod +x /usr/bin/disable-user-expire
+chmod +x /usr/bin/delete-user-expire
+chmod +x /usr/bin/banned-user
+chmod +x /usr/bin/unbanned-user
+chmod +x /usr/bin/user-expire-list
+chmod +x /usr/bin/user-gen
+chmod +x /usr/bin/userlimit.sh
+chmod +x /usr/bin/userlimitssh.sh
+chmod +x /usr/bin/user-list
+chmod +x /usr/bin/user-login
+chmod +x /usr/bin/user-pass
+chmod +x /usr/bin/user-renew
+chmod +x /usr/bin/clearcache.sh
+chmod +x /usr/bin/bannermenu
+cd
